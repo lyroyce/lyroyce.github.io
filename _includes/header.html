@@ -1,0 +1,10 @@
+<div class="col span_2 center">
+  <a href="{{ site.url }}" id="logo" title="{{ site.data.info.name }}"
+     style="background-image: url({{site.baseurl}}/public/images/logo.png);"></a>
+</div>
+<nav class="col span_10 top-navbar">
+	{% for link in site.data.links %}
+	<a href="{{ link.url }}" title="{{ link.title }}"
+	 {% if page.title == link.title %}class="current-page"{% endif %}>{{ link.title }}</a>
+	{% endfor %}
+</nav>

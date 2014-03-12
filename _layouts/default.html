@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    <div class="container azul">
+      <header class="top row gutters{% if page.title == "Home" %} fadeInLeft animated{% endif %}">
+        {% include header.html %}
+      </header>
+
+      {{ content }}
+
+      <footer>
+      </footer>
+    </div>
+
+    <!-- scripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="{{site.baseurl}}/public/js/jquery.fitvids.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("article").fitVids();
+      });
+    </script>
+  </body>
+</html>

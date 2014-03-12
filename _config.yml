@@ -1,0 +1,11 @@
+markdown: redcarpet
+pygments: true
+permalink: /blog/:year/:month/:title.html
+
+exclude: ['gulpfile.js', 'node_modules', 'package.json']
+
+url: http://lyroyce.github.io
+baseurl:
+
+redcarpet:
+  extensions: [strikethrough, tables]
