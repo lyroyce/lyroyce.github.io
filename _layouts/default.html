@@ -4,6 +4,9 @@
     {% include head.html %}
   </head>
   <body>
+    {% if site.url contains "github.io" %}
+      {% include ga.html %}
+    {% endif %}
     <div class="container azul">
       <header class="top row gutters{% if page.title == "Home" %} fadeInLeft animated{% endif %}">
         {% include header.html %}
