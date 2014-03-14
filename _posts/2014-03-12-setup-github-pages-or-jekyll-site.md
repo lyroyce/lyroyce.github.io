@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 搭建GitHub Pages/Jekyll站点
+title: 实用教程：搭建GitHub Pages/Jekyll站点
 ---
 
 准备环境
