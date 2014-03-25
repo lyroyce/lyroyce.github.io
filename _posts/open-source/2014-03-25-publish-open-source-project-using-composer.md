@@ -5,7 +5,7 @@ title: 用Composer发布PHP开源项目
 
 开源
 -------
-首先当然是开源你的项目，比如在GitHub上。你可能需要考虑选择一种开源协议，例如BSD，MIT，GPL等，参见[开源协议浅析]({% post_url 2014-01-12-open-source-license %})。
+首先当然是开源你的项目，比如在GitHub上。你可能需要考虑选择一种开源协议，例如BSD，MIT，GPL等，参见[开源协议浅析]({% post_url open-source/2014-01-12-open-source-license %})。
 
 让Composer认识你的项目
 -------
