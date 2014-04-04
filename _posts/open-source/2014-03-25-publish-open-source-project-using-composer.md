@@ -52,3 +52,33 @@ packagist默认一天进行一次更新。如果你想要在每次push之后自�
 - 在版本控制系统（如GitHub）中创建Tag（或Branch）
 		
 		$ git tag -a 1.4.0 -m 'my version 1.4'
+
+自动加载
+------
+Composer支持`PSR-0`、`PSR-4`、`classmap`和`files`四种加载模式。其中前两种最为常见，而由于`PSR-4`解决了`PSR-0`目录重复定义的问题，所以被推荐使用。详情请参见[官方文档](https://getcomposer.org/doc/04-schema.md#autoload)。
+
+`PSR-0`和`PSR-4`对于相同的引用目录结构区别如下：
+
+- PSR-0
+
+		vendor/
+		    vendor_name/
+		        package_name/
+		            src/
+		                Vendor_Name/
+		                    Package_Name/
+		                        ClassName.php       # Vendor_Name\Package_Name\ClassName
+		            tests/
+		                Vendor_Name/
+		                    Package_Name/
+		                        ClassNameTest.php   # Vendor_Name\Package_Name\ClassNameTest
+		                        
+- PSR-4
+
+		vendor/
+	    vendor_name/
+	        package_name/
+	            src/
+	                ClassName.php       # Vendor_Name\Package_Name\ClassName
+	            tests/
+	                ClassNameTest.php   # Vendor_Name\Package_Name\ClassNameTest
