@@ -3,7 +3,7 @@ layout: post
 title: 实用Shell技巧
 ---
 
-Bash
+自定义Bash
 -------
 - bash_profile vs bashrc
 
@@ -60,10 +60,64 @@ Bash
 		\T   当前时间（12小时制，HH:MM:SS）
 		\!   当前历史记录数量
 
-关键字查找
+系统管理
+--------
+- 获取当前用户ID
+		
+		$ echo $EUID
+		$ echo `id -u`
+
+- 获取当前用户名
+		
+		$ whoami
+		$ getent passwd $EUID | sed 's/:.*//'
+
+- 以其他用户身份运行命令
+
+		$ runuser -l httpd -c 'apachectl'
+
+- 下载并运行远程shell脚本
+
+		$ bash <(curl -s https://192.168.1.101/shell/install.sh)
+
+- 查看进程
+
+		$ ps -aux | grep python
+
+- 删除进程
+
+		$ kill -s 9 <pid>
+		$ pkill -9 python
+
+- 查看端口
+	
+		$ netstat -anp | grep 8000
+
+查找和替换
 --------
 - 在当前目录下所有log文件中查找所有包含"2013-01-01"的行。
 
-		find . -name "*.log" | xargs grep "2013-01-01"
+		$ find . -name "*.log" | xargs grep "2013-01-01"
 
+- 在/var/log目录下查找包含hello的文件，并将所有hello替换为world
 
+		$ sed -i "s/hello/world/g" `grep hello -rl /var/log`
+
+条件逻辑
+------
+- `if [[` vs `if [`
+		
+	- `if [[`自动处理空字符串
+
+	- `if [[`允许使用`&&`和`||`做布尔运算，`>`和`<`比较字符串
+
+	- `if [[`支持正则表达式和通配符
+
+	使用`if [`
+
+		if [ "$USER" == 'httpd' -o "$USER" == 'httpd2' ]; then echo 'yes'; fi;
+
+	使用`if [[`
+
+		if [[ $USER == httpd || $USER == httpd2 ]]; then echo 'yes'; fi;
+		if [[ $USER == httpd* ]]; then echo 'yes'; fi;
