@@ -8,7 +8,7 @@ title: 玄月博客
 {% for category in site.categories %}
 
   <div class="bundle row gutters fadeInDown animated">
-    <h2 class="post-year col span_2">{{ category | first }}</h2>
+    <h2 class="post-year col span_2">{{ category | first | capitalize }}</h2>
     <div class="posts-by-year col span_10">
 
     {% for posts in category %}
