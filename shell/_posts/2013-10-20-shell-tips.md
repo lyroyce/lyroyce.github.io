@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 实用Shell技巧
+category: shell
 ---
 
 系统管理
